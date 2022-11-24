@@ -9,6 +9,7 @@ import { IDataStore, IStore } from "../types";
 import data from "../store_directory.json";
 import styles from "./Home.module.css";
 import { useLocalStorage } from "../hooks";
+import { PillGithub } from "../components/Pill/PillGithub";
 
 const dataMarkers = data.map((store: IDataStore, i) => {
   return createStore(i, store);
@@ -116,8 +117,8 @@ export const Home = () => {
                 store.id === activeStore?.id
                   ? "selected"
                   : store.isFavorite
-                  ? "favorite"
-                  : "default"
+                    ? "favorite"
+                    : "default"
               ].icon
             }
             handleClick={() => handleClickMarker(store)}
@@ -130,6 +131,9 @@ export const Home = () => {
         handleRemoveFavorite={handleRemoveFavorite}
         onSearch={handleFavoriteSearch}
       />
+      <footer style={{ textAlign: 'center' }}>
+        <PillGithub />
+      </footer>
     </div>
   );
 };
