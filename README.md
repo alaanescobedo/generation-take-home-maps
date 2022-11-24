@@ -13,7 +13,7 @@ Tecnologias utilizadas: [React + Typescript]
 - As a student, I want to be able to click on a store and add it to a list of 'My Favorite Stores'.
 
 ### Preview
-<img src="./public/proyect_preview.jpg" />
+<img src="https://res.cloudinary.com/dr3egho5s/image/upload/v1669330501/proyect_preview_qtpgu8.jpg" />
 
 ### Uso
 Este proyecto es totalmente libre, para ejecutarlo realiza un clone de este repositorio y agrega tu API KEY en la siguiente variable de entorno
@@ -21,3 +21,6 @@ Este proyecto es totalmente libre, para ejecutarlo realiza un clone de este repo
 // .env.template
 GOOGLE_MAPS_API_KEY=
 ```
+
+### Guias utilizadas
+https://developers.google.com/maps/documentation/javascript/react-map
