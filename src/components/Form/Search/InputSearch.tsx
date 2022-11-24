@@ -19,7 +19,7 @@ export const InputSearch = ({ onChange, onLoading }: InputSearchProps) => {
   }, [searchValue]);
 
   return (
-    <form>
+    <form onSubmit={(e) => e.preventDefault()}>
       <div style={{ position: "relative" }}>
         <div className={styles.icon_container}>
           <svg
