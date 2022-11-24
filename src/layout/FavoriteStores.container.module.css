@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.container_title {
+  padding: 1rem 0;
+}
+
+.container_list {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+@media (min-width: 768px) {
+  .container_search {
+    width: 25%;
+    margin-left: auto;
+  }
+}
