@@ -3,10 +3,9 @@
 Code-Challenge realizado por parte el programa de Generation
 
 Tecnologias utilizadas: [React + Typescript]
-<div style="display:flex; gap:1rem">
-  <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/react.svg" alt="react" height="28px" width="28px" />
-  <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/typescript.svg" alt="typescript" height="28px" width="28px" />
-</div>
+
+<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"></code>
+<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png"></code>
 
 ### Historias de usuario
 - As a student, I want to see a map of Mexico City
