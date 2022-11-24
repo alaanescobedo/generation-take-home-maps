@@ -1,10 +1,7 @@
-import { useEffect, useState, memo } from "react";
+import { useEffect, useState } from "react";
+import { MyMarkerProps } from "../../types";
 
-interface MyMarkerProps {
-  handleClick: () => void;
-}
-
-const MyMarker = ({
+export const MyMarker = ({
   handleClick,
   icon,
   ...options
@@ -45,7 +42,6 @@ const MyMarker = ({
   }, [marker]);
 
   useEffect(() => {
-    console.log(icon);
     if (marker) {
       marker.setIcon(icon);
     }

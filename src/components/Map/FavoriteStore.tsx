@@ -1,11 +1,6 @@
-import Button from "../Button/Button";
+import { FavoriteStoreProps } from "../../types";
+import { Button } from "../Button";
 
-interface FavoriteStoreProps {
-  name: string;
-  address: string;
-  onClickRemove?: () => void;
-  onClickGo?: () => void;
-}
 export const FavoriteStore = ({
   name,
   address,
@@ -30,8 +25,18 @@ export const FavoriteStore = ({
         <div>{address}</div>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: ".6rem" }}>
-        <Button size="sm" variant="info" label="Go" onClick={onClickGo} />
-        <Button size="sm" variant="danger" label="X" onClick={onClickRemove} />
+        <Button
+          size="sm"
+          variant="primary"
+          label="Go To Place"
+          onClick={onClickGo}
+        />
+        <Button
+          size="sm"
+          variant="danger"
+          label="Remove"
+          onClick={onClickRemove}
+        />
       </div>
     </div>
   );

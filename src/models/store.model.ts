@@ -7,6 +7,6 @@ export const createStore = (id: number, store: IDataStore): IStore => {
     address: store.Address,
     coords: store.Coordinates,
     isFavorite: false,
-  }
+  };
   return myStore;
-}
+};
