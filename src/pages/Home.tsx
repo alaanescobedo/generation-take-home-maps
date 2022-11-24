@@ -129,7 +129,7 @@ export const Home = () => {
         handleRemoveFavorite={handleRemoveFavorite}
         onSearch={handleFavoriteSearch}
       />
-      <footer style={{ textAlign: 'center' }}>
+      <footer style={{ display: 'flex', justifyContent: 'center', margin:'.4rem 0' }}>
         <PillGithub />
       </footer>
     </div>
