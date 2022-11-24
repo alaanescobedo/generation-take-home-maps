@@ -15,9 +15,15 @@
   overflow-y: scroll;
 }
 
+.ms_auto{
+  margin-left: auto;
+}
+.me_auto{
+  margin-right: auto;
+}
+
 @media (min-width: 768px) {
   .container_search {
     width: 25%;
-    margin-left: auto;
   }
 }
