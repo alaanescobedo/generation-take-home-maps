@@ -2,10 +2,10 @@ import { useState } from "react";
 import { FavoriteStore } from "../components/Map";
 import { InputSearch } from "../components/Form";
 
-import styles from "./FavoriteStores.container.module.css";
 import { FavoriteStoresContainerProps } from "../types";
+import styles from "./FavoriteStores.container.module.css";
 
-const FavoriteStoresContainer = ({
+export const FavoriteStoresContainer = ({
   stores,
   handleGoToStore,
   handleRemoveFavorite,

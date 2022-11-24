@@ -8,7 +8,7 @@ const render = (status: Status) => {
   return <h1>{status}</h1>;
 };
 
-const MapLayout = ({
+export const MapStores = ({
   children,
   center,
   zoom,
@@ -43,4 +43,4 @@ const MapLayout = ({
   );
 };
 
-export default MapLayout;
+export default MapStores;

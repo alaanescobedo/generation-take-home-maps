@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
-import FavoriteStoresContainer from "../containers/FavoriteStores.container";
-import MapLayout from "../containers/MapStores.container";
-import MyMarker from "../components/Map/MyMarker";
-
-import { createStore } from "../models/store.model";
+import { MapStores, FavoriteStoresContainer } from "../containers";
+import { MyMarker } from "../components/Map";
+import { PillGithub } from "../components/Pill/PillGithub";
+import { createStore } from "../models";
 import { INITIAL_ZOOM, CDMX_COORDS, GO_TO_ZOOM, icons } from "../constants";
 import { IDataStore, IStore } from "../types";
-import data from "../store_directory.json";
-import styles from "./Home.module.css";
 import { useLocalStorage } from "../hooks";
-import { PillGithub } from "../components/Pill/PillGithub";
+import styles from "./Home.module.css";
+import data from "../store_directory.json";
 
 const dataMarkers = data.map((store: IDataStore, i) => {
   return createStore(i, store);
@@ -96,7 +94,7 @@ export const Home = () => {
 
   return (
     <div className={`App ${styles.container}`}>
-      <MapLayout
+      <MapStores
         activeStore={activeStore}
         center={center}
         zoom={zoom}
@@ -124,7 +122,7 @@ export const Home = () => {
             handleClick={() => handleClickMarker(store)}
           />
         ))}
-      </MapLayout>
+      </MapStores>
       <FavoriteStoresContainer
         stores={listFavoriteStores}
         handleGoToStore={handleGoToStore}
