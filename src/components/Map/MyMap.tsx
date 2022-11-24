@@ -1,22 +1,16 @@
 import {
   Children,
   cloneElement,
-  CSSProperties,
   isValidElement,
   useEffect,
   useRef,
   useState,
 } from "react";
+import { MapProps } from "../../types";
+import { InputSearch } from "../Form";
+import inputStyles from "../../containers/FavoriteStores.container.module.css";
 
-interface MapProps extends google.maps.MapOptions {
-  style?: CSSProperties;
-  className?: string;
-  onClick?: (e: google.maps.MapMouseEvent) => void;
-  onIdle?: (map: google.maps.Map) => void;
-  children?: React.ReactNode;
-}
-
-const MyMap = ({
+export const MyMap = ({
   onClick,
   onIdle,
   children,
@@ -24,6 +18,7 @@ const MyMap = ({
   className,
   center,
   zoom,
+  onSearch,
   ...options
 }: MapProps) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -31,13 +26,12 @@ const MyMap = ({
 
   useEffect(() => {
     if (ref.current && !map) {
-      setMap(
-        new window.google.maps.Map(ref.current, {
-          center,
-          zoom,
-          ...options,
-        })
-      );
+      const map = new window.google.maps.Map(ref.current, {
+        center,
+        zoom,
+        ...options,
+      });
+      setMap(map);
     }
   }, [ref, map, options]);
 
@@ -63,6 +57,9 @@ const MyMap = ({
   return (
     <>
       <div ref={ref} className={className} style={{ ...style }} />
+      <div className={inputStyles.container_search}>
+        <InputSearch onChange={onSearch} onLoading={() => {}} />
+      </div>
       {Children.map(children, (child) => {
         if (isValidElement(child)) {
           // set the map prop on the child component
