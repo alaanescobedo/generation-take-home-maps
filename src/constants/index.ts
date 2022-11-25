@@ -8,7 +8,7 @@ export const icons = {
     icon: iconBase + "red-circle.png",
   },
   favorite: {
-    icon: iconBase + "red-stars.png",
+    icon: iconBase + "blu-stars.png",
   },
   selected: {
     icon: iconBase + "orange-blank.png",
