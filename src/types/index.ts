@@ -10,7 +10,7 @@ export interface IStore {
   name: string;
   address: string;
   coords: { lat: number; lng: number };
-  isFavorite: boolean | null;
+  isFavorite: boolean;
 }
 
 export interface ButtonProps
@@ -55,19 +55,10 @@ export interface FavoriteStoreProps {
 }
 
 export interface MapStoresContainerProps {
-  children: React.ReactNode;
-  center?: google.maps.LatLngLiteral;
-  zoom?: number;
-  activeStore: IStore | null;
-  handleFavorite: (store: IStore) => void;
-  handleCloseAside: () => void;
-  onSearch: (value: string) => void;
-  onLoading?: (value: boolean) => void;
+
 }
 
 export interface FavoriteStoresContainerProps {
-  stores: IStore[];
   handleGoToStore: (store: IStore) => void;
   handleRemoveFavorite: (store: IStore) => void;
-  onSearch: (value: string) => void;
 }
