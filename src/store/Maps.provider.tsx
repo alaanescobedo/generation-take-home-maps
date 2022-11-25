@@ -4,9 +4,9 @@ import { useLocalStorage } from "../hooks";
 import { IStore } from "../types";
 import { MapStoresContext } from "./Maps.context";
 
-export const MapStoresProvider = ({ children, stores }: { children: ReactNode, stores: IStore[] }) => {
+export const MapStoresProvider = ({ children, stores = [] }: { children: ReactNode, stores?: IStore[] }) => {
 
-  const [allStores, setAllStores] = useState(stores ?? [])
+  const [allStores, setAllStores] = useState(stores)
   const [activeStore, setActiveStore] = useState<IStore | null>(null)
   const [zoom, setZoom] = useState<number>(INITIAL_ZOOM);
   const [center, setCenter] = useState<google.maps.LatLngLiteral>(CDMX_COORDS);
