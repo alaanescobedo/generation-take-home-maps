@@ -30,7 +30,7 @@ export const MapStores = () => {
   return (
     <div className={styles.container_map}>
       <div className={styles.container_map__main}>
-        <Wrapper apiKey={import.meta.env.GOOGLE_MAPS_API_KEY} render={render}>
+        <Wrapper apiKey={process.env.GOOGLE_MAPS_API_KEY!} render={render}>
           <MyMap
             center={center}
             zoom={zoom}
