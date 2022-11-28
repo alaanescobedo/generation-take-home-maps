@@ -1,15 +1,22 @@
 import { useState, ReactNode } from "react";
-import { CDMX_COORDS, INITIAL_ZOOM } from "../constants";
 import { useLocalStorage } from "../hooks";
 import { IStore } from "../types";
 import { MapStoresContext } from "./Maps.context";
 
-export const MapStoresProvider = ({ children, stores = [] }: { children: ReactNode, stores?: IStore[] }) => {
+interface MapStoresProviderProps {
+  children: ReactNode;
+  stores?: IStore[];
+  initialZoom?: number;
+  initialCenter?: { lat: number; lng: number };
+}
+
+const defaultCenter = { lat: 0, lng: 0 };
+export const MapStoresProvider = ({ children, stores = [], initialZoom = 12, initialCenter = defaultCenter }: MapStoresProviderProps) => {
 
   const [allStores, setAllStores] = useState(stores)
   const [activeStore, setActiveStore] = useState<IStore | null>(null)
-  const [zoom, setZoom] = useState<number>(INITIAL_ZOOM);
-  const [center, setCenter] = useState<google.maps.LatLngLiteral>(CDMX_COORDS);
+  const [zoom, setZoom] = useState<number>(initialZoom);
+  const [center, setCenter] = useState<google.maps.LatLngLiteral>(initialCenter);
 
   const [favoriteStores, setFavoriteStores] = useLocalStorage<IStore[]>(
     "fav_stores", []
@@ -55,36 +62,3 @@ export const MapStoresProvider = ({ children, stores = [] }: { children: ReactNo
     </MapStoresContext.Provider>
   )
 }
-
-
-
-
-
-  // const handleAddFavorite = (store: IStore) => {
-  //   const isFavorite = favoriteStores.some(({ id }) => id === store.id);
-  //   if (isFavorite) return;
-  //   setFavoriteStores([...favoriteStores, store]);
-
-  //   setAllStores((prev) =>
-  //     prev.map((storeItem) => {
-  //       if (storeItem.id === store.id) storeItem.isFavorite = true;
-  //       return storeItem;
-  //     })
-  //   );
-  // };
-
-  // const handleRemoveFavorite = (store: IStore) => {
-  //   setFavoriteStores(favoriteStores.filter((s) => s.name !== store.name));
-  //   setAllStores((prev) =>
-  //     prev.map((storeItem) => {
-  //       if (storeItem.id === store.id) storeItem.isFavorite = false;
-  //       return storeItem;
-  //     })
-  //   );
-  // };
-
-  // const handleGoToStore = (store: IStore) => {
-  //   setCenter({ lat: store.coords.lat, lng: store.coords.lng });
-  //   setZoom(GO_TO_ZOOM);
-  //   // setActiveStore(store);
-  // };
