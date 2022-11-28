@@ -4,6 +4,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
-    '\\.(css|less)$': 'identity-obj-proxy',
-  }
+    '\\.(css)$': 'identity-obj-proxy',
+  },
+  modulePathIgnorePatterns: ['<rootDir>/__tests__/mocks'],
 };
