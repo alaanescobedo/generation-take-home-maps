@@ -16,19 +16,12 @@ interface MapStoreContext {
   addFavorite: (store: IStore) => void
 }
 
-export const MapStoresContext = createContext<MapStoreContext>({
-  activeStore: null,
-  setActiveStore: () => { },
-  allStores: [],
-  setAllStores: () => { },
-  favoriteStores: [],
-  setFavoriteStores: () => { },
-  zoom: 12,
-  setZoom: () => { },
-  center: { lat: 0, lng: 0 },
-  setCenter: () => { },
-  removeFavorite: () => { },
-  addFavorite: () => { }
-})
+export const MapStoresContext = createContext<MapStoreContext | null>(null)
 
-export const useMapStores = () => useContext(MapStoresContext)
+export const useMapStores = () => {
+  const context = useContext(MapStoresContext)
+  if (!context) {
+    throw new Error("Cannot use 'useMapStores' outside of 'MapStoresProvider'")
+  }
+  return context
+}

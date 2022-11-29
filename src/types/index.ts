@@ -35,14 +35,11 @@ export interface MapProps extends google.maps.MapOptions {
   onClick?: (e: google.maps.MapMouseEvent) => void;
   onIdle?: (map: google.maps.Map) => void;
   children?: React.ReactNode;
-  onSearch: (value: string) => void;
+  onSearch?: (value: string) => void;
 }
 
 export interface AsideMapProps {
-  name: string | null;
-  address: string | null;
-  coords: { lat: number; lng: number } | null;
-  isFavorite: boolean;
+  store: IStore | null;
   handleFavorite: () => void;
   onClose: () => void;
 }

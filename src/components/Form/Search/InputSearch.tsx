@@ -11,6 +11,7 @@ export const InputSearch = ({ onChange, onLoading }: InputSearchProps) => {
   };
 
   useEffect(() => {
+    if (searchValue.length <= 0) return
     const handler = setTimeout(() => {
       onChange(searchValue);
       onLoading(false);
