@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Status, Wrapper } from "@googlemaps/react-wrapper";
 import { AsideMap, MyMap, MyMarker } from "../components/Map";
 import { icons } from "../constants";
@@ -27,6 +27,8 @@ export const MapStores = () => {
     setListStores(filteredStores);
   };
 
+  useEffect(() => setListStores(allStores), [allStores]);
+  
   return (
     <div className={styles.container_map}>
       <div className={styles.container_map__main}>

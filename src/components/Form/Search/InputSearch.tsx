@@ -3,7 +3,7 @@ import { InputSearchProps } from "../../../types";
 import styles from "./InputSearch.module.css";
 
 export const InputSearch = ({ onChange, onLoading }: InputSearchProps) => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -11,7 +11,7 @@ export const InputSearch = ({ onChange, onLoading }: InputSearchProps) => {
   };
 
   useEffect(() => {
-    if (searchValue.length <= 0) return
+    if (searchValue === null) return
     const handler = setTimeout(() => {
       onChange(searchValue);
       onLoading(false);
@@ -45,7 +45,7 @@ export const InputSearch = ({ onChange, onLoading }: InputSearchProps) => {
           className={styles.input_search}
           placeholder="Search store..."
           required
-          value={searchValue}
+          value={searchValue || ""}
           onChange={handleChange}
         />
       </div>
