@@ -15,3 +15,5 @@ export const storeMock2: IStore = {
   coords: { lat: 20, lng: 20 },
   isFavorite: true
 }
+
+export const storeMockArr: IStore[] = [storeMock, storeMock2];
