@@ -8,13 +8,19 @@ interface MapStoresProviderProps {
   stores?: IStore[];
   initialZoom?: number;
   initialCenter?: { lat: number; lng: number };
+  initialActiveStore?: IStore | null;
 }
 
 const defaultCenter = { lat: 0, lng: 0 };
-export const MapStoresProvider = ({ children, stores = [], initialZoom = 12, initialCenter = defaultCenter }: MapStoresProviderProps) => {
+const defaultZoom = 12;
+export const MapStoresProvider = ({ children,
+  stores = [],
+  initialZoom = defaultZoom,
+  initialCenter = defaultCenter,
+  initialActiveStore = null }: MapStoresProviderProps) => {
 
   const [allStores, setAllStores] = useState(stores)
-  const [activeStore, setActiveStore] = useState<IStore | null>(null)
+  const [activeStore, setActiveStore] = useState<IStore | null>(initialActiveStore)
   const [zoom, setZoom] = useState<number>(initialZoom);
   const [center, setCenter] = useState<google.maps.LatLngLiteral>(initialCenter);
 

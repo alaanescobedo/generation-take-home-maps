@@ -39,10 +39,7 @@ export interface MapProps extends google.maps.MapOptions {
 }
 
 export interface AsideMapProps {
-  name: string | null;
-  address: string | null;
-  coords: { lat: number; lng: number } | null;
-  isFavorite: boolean;
+  store: IStore | null;
   handleFavorite: () => void;
   onClose: () => void;
 }

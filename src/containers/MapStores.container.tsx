@@ -59,10 +59,7 @@ export const MapStores = () => {
         </Wrapper>
       </div>
       <AsideMap
-        name={activeStore?.name || null}
-        address={activeStore?.address || null}
-        coords={activeStore?.coords || null}
-        isFavorite={activeStore?.isFavorite || false}
+        store={activeStore || null}
         handleFavorite={() => activeStore?.isFavorite ? removeFavorite(activeStore) : addFavorite(activeStore!)}
         onClose={() => setActiveStore(null)}
       />
