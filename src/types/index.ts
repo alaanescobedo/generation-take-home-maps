@@ -35,7 +35,7 @@ export interface MapProps extends google.maps.MapOptions {
   onClick?: (e: google.maps.MapMouseEvent) => void;
   onIdle?: (map: google.maps.Map) => void;
   children?: React.ReactNode;
-  onSearch: (value: string) => void;
+  onSearch?: (value: string) => void;
 }
 
 export interface AsideMapProps {
