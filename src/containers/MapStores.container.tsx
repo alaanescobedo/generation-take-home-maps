@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Status, Wrapper } from "@googlemaps/react-wrapper";
+import { Status, Wrapper } from "../components/Map";
 import { AsideMap, MyMap, MyMarker } from "../components/Map";
 import { icons } from "../constants";
 import { IStore, MapStoresContainerProps } from "../types";
