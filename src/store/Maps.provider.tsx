@@ -29,8 +29,8 @@ export const MapStoresProvider = ({ children,
     "fav_stores", []
   );
 
-  const handleRemoveFavorite = (store: IStore) => {
-    const updatedFavorites = allStores.map((storeItem) => {
+  const handleRemoveFavorite = (store: IStore, displayStores: IStore[]) => {
+    const updatedFavorites = displayStores.map((storeItem) => {
       if (storeItem.id === store.id) storeItem.isFavorite = false;
       return storeItem;
     })
@@ -38,10 +38,10 @@ export const MapStoresProvider = ({ children,
     setAllStores(updatedFavorites)
   };
 
-  const handleAddFavorite = (store: IStore) => {
+  const handleAddFavorite = (store: IStore, displayStores: IStore[]) => {
     if (favoriteStores.some(({ id }) => id === store.id)) return;
 
-    const updatedFavorites = allStores.map((storeItem) => {
+    const updatedFavorites = displayStores.map((storeItem) => {
       if (storeItem.id === store.id) storeItem.isFavorite = true;
       return storeItem;
     })

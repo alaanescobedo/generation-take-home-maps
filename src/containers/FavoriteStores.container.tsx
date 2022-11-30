@@ -65,7 +65,7 @@ export const FavoriteStoresContainer = () => {
               address={store.address}
               name={store.name}
               onClickGo={() => handleGoToStore(store)}
-              onClickRemove={() => removeFavorite(store)}
+              onClickRemove={() => removeFavorite(store, listStores)}
             />
           ))}
         </div>

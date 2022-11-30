@@ -8,8 +8,8 @@ interface IStoresContext {
   setAllStores: Dispatch<SetStateAction<IStore[]>>
   favoriteStores: IStore[]
   setFavoriteStores: (store: IStore[]) => void
-  removeFavorite: (store: IStore) => void
-  addFavorite: (store: IStore) => void
+  removeFavorite: (store: IStore, displayStores: IStore[]) => void
+  addFavorite: (store: IStore, displayStores: IStore[]) => void
 }
 
 export const StoresContext = createContext<IStoresContext | null>(null)

@@ -63,7 +63,7 @@ export const MapStores = () => {
       </div>
       <AsideMap
         store={activeStore || null}
-        handleFavorite={() => activeStore?.isFavorite ? removeFavorite(activeStore) : addFavorite(activeStore!)}
+        handleFavorite={() => activeStore?.isFavorite ? removeFavorite(activeStore, listStores) : addFavorite(activeStore!, listStores)}
         onClose={() => setActiveStore(null)}
       />
     </div>
