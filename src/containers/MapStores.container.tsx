@@ -5,7 +5,7 @@ import { icons } from "../constants";
 import { IStore, MapStoresContainerProps } from "../types";
 
 import styles from "./MapStores.container.module.css";
-import { useMapStores } from "../store/Maps.context";
+import { useMap, useStores } from "../store";
 
 const render = (status: Status) => {
   return <h1>{status}</h1>;
@@ -13,7 +13,8 @@ const render = (status: Status) => {
 
 export const MapStores = () => {
 
-  const { activeStore, setActiveStore, allStores, center, zoom, addFavorite, removeFavorite } = useMapStores()
+  const { activeStore, setActiveStore, allStores, addFavorite, removeFavorite } = useStores()
+  const { center, zoom } = useMap();
   const [listStores, setListStores] = useState<IStore[]>(allStores)
 
   const handleSearch = (searchValue: string) => {
