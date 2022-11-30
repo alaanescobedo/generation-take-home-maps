@@ -6,11 +6,10 @@ import { createStore } from "../models";
 import { IDataStore } from "../types";
 
 import data from '../store_directory.json'
-import { useMapStores } from "../store/Maps.context";
+import { useStores } from "../store";
 
 export const Home = () => {
-
-  const { setAllStores, favoriteStores } = useMapStores()
+  const { setAllStores, favoriteStores } = useStores()
 
   useEffect(() => {
     const dataMarkers = data.map((dataStore: IDataStore, i) => {

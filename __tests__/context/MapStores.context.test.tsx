@@ -1,10 +1,11 @@
 import React from 'react';
 import { render, screen, cleanup, act } from '@testing-library/react';
-import { MapStoresProvider, useMapStores } from '../../src/store'
+import { MapStoresProvider, useMap, useStores } from '../../src/store'
 import { storeMock } from '../mocks'
 
 const TestComponent = () => {
-  const { activeStore, allStores, center, favoriteStores, zoom, addFavorite, removeFavorite, setActiveStore, setAllStores, setCenter, setFavoriteStores, setZoom, } = useMapStores();
+  const { activeStore, allStores, favoriteStores, addFavorite, removeFavorite, setActiveStore, setAllStores, setFavoriteStores } = useStores();
+  const { center, zoom, setCenter, setZoom } = useMap();
 
   return (
     <div>

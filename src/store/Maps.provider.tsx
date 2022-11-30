@@ -1,7 +1,8 @@
 import { useState, ReactNode } from "react";
 import { useLocalStorage } from "../hooks";
 import { IStore } from "../types";
-import { MapStoresContext } from "./Maps.context";
+import { MapContext } from "./Maps.context";
+import { StoresContext } from "./Stores.context";
 
 interface MapStoresProviderProps {
   children: ReactNode;
@@ -49,22 +50,25 @@ export const MapStoresProvider = ({ children,
   };
 
   return (
-    <MapStoresContext.Provider value={{
-      activeStore,
-      allStores,
-      favoriteStores,
+    <MapContext.Provider value={{
       center,
       zoom,
-      setActiveStore,
-      setAllStores,
       setCenter,
-      setFavoriteStores,
       setZoom,
-      addFavorite: handleAddFavorite,
-      removeFavorite: handleRemoveFavorite
     }}
     >
-      {children}
-    </MapStoresContext.Provider>
+      <StoresContext.Provider value={{
+        activeStore,
+        allStores,
+        favoriteStores,
+        setActiveStore,
+        setAllStores,
+        setFavoriteStores,
+        addFavorite: handleAddFavorite,
+        removeFavorite: handleRemoveFavorite
+      }}>
+        {children}
+      </StoresContext.Provider>
+    </MapContext.Provider>
   )
 }

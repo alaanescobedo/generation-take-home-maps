@@ -3,12 +3,13 @@ import { FavoriteStore } from "../components/Map";
 import { InputSearch } from "../components/Form";
 
 import styles from "./FavoriteStores.container.module.css";
-import { useMapStores } from "../store/Maps.context";
 import { IStore } from "../types";
 import { GO_TO_ZOOM } from "../constants";
+import { useMap, useStores } from "../store";
 
 export const FavoriteStoresContainer = () => {
-  const { favoriteStores, activeStore, setCenter, setZoom, setActiveStore, removeFavorite } = useMapStores()
+  const { favoriteStores, activeStore, setActiveStore, removeFavorite } = useStores()
+  const { setCenter, setZoom } = useMap()
   const [isLoading, setIsLoading] = useState(false);
   const [listStores, setListStores] = useState(favoriteStores)
 
