@@ -44,7 +44,7 @@ export const FavoriteStoresContainer = () => {
       <div className={styles.container_title}>
         <h2 style={{ marginBottom: 0 }} >Favorite Stores</h2>
         <div className={`${styles.container_search} ${styles.ms_auto}`}>
-          <InputSearch onChange={handleOnSearch} onLoading={handleOnLoading} />
+          <InputSearch onChange={setSearchValue} />
         </div>
       </div>
 

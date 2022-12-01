@@ -1,23 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { InputSearchProps } from "../../../types";
 import styles from "./InputSearch.module.css";
 
-export const InputSearch = ({ onChange, onLoading }: InputSearchProps) => {
-  const [searchValue, setSearchValue] = useState<string | null>(null);
+// TODO: Separate form control from input
+export const InputSearch = ({ onChange }: InputSearchProps) => {
+  const [searchValue, setSearchValue] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
-    onLoading(true);
+    onChange(e.target.value);
   };
-
-  useEffect(() => {
-    if (searchValue === null) return
-    const handler = setTimeout(() => {
-      onChange(searchValue);
-      onLoading(false);
-    }, 300);
-    return () => clearTimeout(handler);
-  }, [searchValue]);
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>

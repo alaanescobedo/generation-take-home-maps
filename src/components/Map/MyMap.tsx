@@ -59,7 +59,7 @@ export const MyMap = ({
       <div ref={ref} className={className} style={{ ...style }} />
       {onSearch && (
         <div className={`${inputStyles.container_search} ${inputStyles.me_auto}`}>
-          <InputSearch onChange={onSearch} onLoading={() => { }} />
+          <InputSearch onChange={onSearch} />
         </div>
       )}
       {Children.map(children, (child) => {
