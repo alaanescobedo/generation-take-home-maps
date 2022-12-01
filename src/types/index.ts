@@ -22,7 +22,6 @@ export interface ButtonProps
 
 export interface InputSearchProps {
   onChange: (value: string) => void;
-  onLoading: (value: boolean) => void;
 }
 
 export interface MyMarkerProps {

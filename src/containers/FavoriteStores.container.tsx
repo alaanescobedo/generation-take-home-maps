@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { FavoriteStore } from "../components/Map";
 import { InputSearch } from "../components/Form";
 
@@ -6,32 +5,21 @@ import styles from "./FavoriteStores.container.module.css";
 import { IStore } from "../types";
 import { GO_TO_ZOOM } from "../constants";
 import { useMap, useStores } from "../store";
+import { useEffect, useState } from "react";
+import { searchStore } from "../utils/search-store";
 
 export const FavoriteStoresContainer = () => {
-  const { favoriteStores, activeStore, setActiveStore, removeFavorite } = useStores()
+  const { favoriteStores, setActiveStore, removeFavorite } = useStores()
   const { setCenter, setZoom } = useMap()
-  const [isLoading, setIsLoading] = useState(false);
-  const [listStores, setListStores] = useState(favoriteStores)
+
+  const [results, setResults] = useState<IStore[]>(favoriteStores)
+  const [searchValue, setSearchValue] = useState<string>("")
 
   useEffect(() => {
-    setListStores(favoriteStores)
-  }, [favoriteStores])
-
-
-  const handleOnLoading = (value: boolean) => {
-    setIsLoading(value);
-  };
-
-  const handleOnSearch = (searchValue: string) => {
-    if (searchValue === "") return setListStores(favoriteStores);
-    let filteredStores = favoriteStores.filter((store) => {
-      if (activeStore?.id === store.id) return true;
-      let match = store.name.toLowerCase().includes(searchValue.toLowerCase());
-      if (!match) match = store.address.toLowerCase().includes(searchValue.toLowerCase());
-      return match;
-    });
-    setListStores(filteredStores);
-  }
+    if (!searchValue) return setResults(favoriteStores)
+    const results = searchStore(searchValue, favoriteStores, null)
+    setResults(results)
+  }, [searchValue, favoriteStores])
 
   const handleGoToStore = (store: IStore) => {
     setCenter({ lat: store.coords.lat, lng: store.coords.lng });
@@ -48,24 +36,20 @@ export const FavoriteStoresContainer = () => {
         </div>
       </div>
 
-      {isLoading && (
-        <p style={{ fontSize: "1rem", color: "#fff" }}>Loading...</p>
-      )}
-
-      {listStores.length === 0 && (
+      {results.length === 0 && (
         <p style={{ fontSize: "1.6rem", color: "#ccc", textAlign: "center" }}>
           Add your favorite stores
         </p>
       )}
-      {listStores.length > 0 && (
+      {results.length > 0 && (
         <div className={styles.container_list}>
-          {listStores.map((store, i) => (
+          {results.map((store, i) => (
             <FavoriteStore
               key={i}
               address={store.address}
               name={store.name}
               onClickGo={() => handleGoToStore(store)}
-              onClickRemove={() => removeFavorite(store, listStores)}
+              onClickRemove={() => removeFavorite(store)}
             />
           ))}
         </div>

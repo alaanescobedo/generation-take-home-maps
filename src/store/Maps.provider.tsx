@@ -29,24 +29,17 @@ export const MapStoresProvider = ({ children,
     "fav_stores", []
   );
 
-  const handleRemoveFavorite = (store: IStore, displayStores: IStore[]) => {
-    const updatedFavorites = displayStores.map((storeItem) => {
-      if (storeItem.id === store.id) storeItem.isFavorite = false;
-      return storeItem;
-    })
-    setFavoriteStores(favoriteStores.filter((s) => s.name !== store.name));
-    setAllStores(updatedFavorites)
+  const handleRemoveFavorite = (storeSelected: IStore) => {
+    setFavoriteStores(favoriteStores.filter((s) => s.name !== storeSelected.name));
+    setAllStores((prev) => prev.map((store) => store.id === storeSelected.id ? { ...store, isFavorite: false } : store))
+    setActiveStore((prev) => prev && prev.id === storeSelected.id ? { ...prev, isFavorite: false } : prev)
   };
 
-  const handleAddFavorite = (store: IStore, displayStores: IStore[]) => {
-    if (favoriteStores.some(({ id }) => id === store.id)) return;
-
-    const updatedFavorites = displayStores.map((storeItem) => {
-      if (storeItem.id === store.id) storeItem.isFavorite = true;
-      return storeItem;
-    })
-    setFavoriteStores([...favoriteStores, store]);
-    setAllStores(updatedFavorites);
+  const handleAddFavorite = (storeSelected: IStore) => {
+    if (favoriteStores.some(({ id }) => id === storeSelected.id)) return;
+    setFavoriteStores([...favoriteStores, storeSelected]);
+    setAllStores((prev) => prev.map((store) => store.id === storeSelected.id ? { ...store, isFavorite: true } : store))
+    setActiveStore((prev) => prev && prev.id === storeSelected.id ? { ...prev, isFavorite: true } : prev)
   };
 
   return (
