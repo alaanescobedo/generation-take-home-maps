@@ -7,10 +7,7 @@ import styles from "./MapStores.container.module.css";
 import { useMap, useStores } from "../store";
 import { IStore } from "../types";
 import { searchStore } from "../utils/search-store";
-
-const render = (status: Status) => {
-  return <h1>{status}</h1>;
-};
+import { Spinner } from "../components/Feedback";
 
 export const MapStores = () => {
 
@@ -29,7 +26,7 @@ export const MapStores = () => {
   return (
     <div className={styles.container_map}>
       <div className={styles.container_map__main}>
-        <Wrapper apiKey={process.env.GOOGLE_MAPS_API_KEY!} render={render}>
+        <Wrapper apiKey={process.env.GOOGLE_MAPS_API_KEY!} render={Spinner}>
           <MyMap
             center={center}
             zoom={zoom}
