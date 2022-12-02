@@ -42,7 +42,7 @@ export interface MapProps extends google.maps.MapOptions {
 export interface AsideMapProps {
   store: IStore | null;
   handleFavorite: () => void;
-  handleStreetView: () => void;
+  handleStreetView?: () => void;
   onClose: () => void;
 }
 
