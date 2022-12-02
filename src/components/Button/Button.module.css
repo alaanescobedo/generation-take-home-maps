@@ -1,12 +1,13 @@
 .btn {
-  border: 1px solid rgb(30 41 59);
+  /* border: 1px solid rgb(30 41 59); */
+  border: none;
   padding: 0.6rem 1.2rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 0.4rem;
   transition: all 0.2s ease;
 }
 .btn:active {
@@ -16,28 +17,28 @@
 
 .btn-sm {
   padding: 0.4rem 0.8rem;
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .btn-md {
   padding: 0.6rem 1.2rem;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .btn-primary {
-  background-color: rgb(96 165 250);
+  background-color: #4338ca;
   font-weight: bold;
   color: #fff;
 }
 .btn-primary:hover {
-  background-color: rgb(59 130 246);
+  background-color: #6366f1;
 }
 
 .btn-danger {
-  background-color: rgb(220 38 38);
+  background-color: #9f1239;
   color: #fff;
   font-weight: bold;
 }
 .btn-danger:hover {
-  background-color: rgb(185 28 28);
+  background-color: #e11d48;
 }

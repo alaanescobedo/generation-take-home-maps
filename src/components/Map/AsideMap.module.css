@@ -23,15 +23,24 @@
   flex: 1;
   color: #213547;
 }
+.content__name {
+  font-size: 1.5rem;
+  margin: 0 auto;
+}
+.content__address {
+  font-size: 1.4rem;
+}
 .content_cords {
   font-weight: bold;
+  font-size: 1.4rem;
 }
 .content_link {
   color: #646cff;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.4rem;
 }
 .content_link:hover {
-  color: #535bf2; 
+  color: #535bf2;
   text-decoration: underline;
 }

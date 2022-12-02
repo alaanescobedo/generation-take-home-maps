@@ -6,7 +6,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #111827;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -33,7 +33,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 @media (min-width: 768px) {
   body {
