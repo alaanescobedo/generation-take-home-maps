@@ -22,7 +22,7 @@ Tecnologias utilizadas:
 - As a student, I want to be able to click on a store and add it to a list of 'My Favorite Stores'.
 
 ### Preview
-<img src="https://res.cloudinary.com/dr3egho5s/image/upload/v1670003472/generations-maps_umfjm3.jpg" />
+https://user-images.githubusercontent.com/70691126/205399674-ff7ccd4e-90b8-4bc4-9755-008ace8069d5.mp4
 
 ### Uso
 Este proyecto es totalmente libre, para ejecutarlo realiza un clone de este repositorio y agrega tu API KEY en la siguiente variable de entorno, despues simplemente remueve la extension ".template" del nombre del archivo.
