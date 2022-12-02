@@ -1,5 +1,4 @@
 import { MapStores, FavoriteStoresContainer } from "../containers";
-import { PillGithub } from "../components/Pill/PillGithub";
 import styles from "./Home.module.css";
 import { useEffect } from "react";
 import { createStore } from "../models";
@@ -7,6 +6,7 @@ import { IDataStore } from "../types";
 
 import data from '../store_directory.json'
 import { useStores } from "../store";
+import { Footer } from "../layout/Footer";
 
 export const Home = () => {
   const { setAllStores, favoriteStores } = useStores()
@@ -28,9 +28,7 @@ export const Home = () => {
     <div className={`App ${styles.container}`}>
       <MapStores />
       <FavoriteStoresContainer />
-      <footer style={{ display: 'flex', justifyContent: 'center', margin: '1rem' }}>
-        <PillGithub />
-      </footer>
+      <Footer />
     </div>
   );
 };
