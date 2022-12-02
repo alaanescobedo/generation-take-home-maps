@@ -1,11 +1,20 @@
 ## Generation - Google Maps
 
-Code-Challenge realizado por parte el programa de Generation
+Code-Challenge realizado por parte el programa de Generation.
 
-Tecnologias utilizadas: [React + Typescript]
+<div style="display:flex; gap: .2rem; margin:1rem 0">
+Tecnologias utilizadas:
+<code style="display:flex; align-items:center;">React<img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"></code>
+<code style="display:flex; align-items:center;">Typescript<img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png">
+</code>
+</div>
 
-<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"></code>
-<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png"></code>
+Proyecto realizado sin dependencias adicionales a react.
+- Se implemento un wrapper propio basado en la liberia [@googlemaps/react-wrapper](https://www.npmjs.com/package/@googlemaps/react-wrapper)
+- Tests con Jest y React Testing Library
+
+API'S utilizadas:
+- Maps Javascript API from Google
 
 ### Historias de usuario
 - As a student, I want to see a map of Mexico City
@@ -13,13 +22,13 @@ Tecnologias utilizadas: [React + Typescript]
 - As a student, I want to be able to click on a store and add it to a list of 'My Favorite Stores'.
 
 ### Preview
-<img src="https://res.cloudinary.com/dr3egho5s/image/upload/v1669330501/proyect_preview_qtpgu8.jpg" />
+<img src="https://res.cloudinary.com/dr3egho5s/image/upload/v1670003472/generations-maps_umfjm3.jpg" />
 
 ### Uso
-Este proyecto es totalmente libre, para ejecutarlo realiza un clone de este repositorio y agrega tu API KEY en la siguiente variable de entorno
+Este proyecto es totalmente libre, para ejecutarlo realiza un clone de este repositorio y agrega tu API KEY en la siguiente variable de entorno.
 ```ts
 // .env.template
-GOOGLE_MAPS_API_KEY=
+GOOGLE_MAPS_API_KEY=yours_api_key
 ```
 
 ### Guias utilizadas
