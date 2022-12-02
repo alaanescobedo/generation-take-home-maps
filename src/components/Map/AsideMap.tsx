@@ -5,11 +5,11 @@ import styles from "./AsideMap.module.css";
 export const AsideMap = ({
   store,
   handleFavorite,
+  handleStreetView,
   onClose,
 }: AsideMapProps) => {
   const isActive = store !== null;
   const toGoogleMaps = `//maps.google.com?q=${store?.address}, ${store?.name}`;
-
   return (
     <div
       className={`
@@ -42,6 +42,9 @@ export const AsideMap = ({
             <p className={styles.content_cords}>
               <span>Lat:{store.coords?.lat}</span> - <span>Lng:{store.coords?.lng}</span>
             </p>
+            <div>
+              <Button variant="primary" label="POV" onClick={handleStreetView} style={{ padding: '.6rem 2.4rem' }} />
+            </div>
             <a className={styles.content_link} href={toGoogleMaps} target="_blank">
               View in Google Maps
             </a>

@@ -35,11 +35,14 @@ export interface MapProps extends google.maps.MapOptions {
   onIdle?: (map: google.maps.Map) => void;
   children?: React.ReactNode;
   onSearch?: (value: string) => void;
+  isStreetView?: boolean;
+  activeCoords?: { lat: number; lng: number };
 }
 
 export interface AsideMapProps {
   store: IStore | null;
   handleFavorite: () => void;
+  handleStreetView: () => void;
   onClose: () => void;
 }
 

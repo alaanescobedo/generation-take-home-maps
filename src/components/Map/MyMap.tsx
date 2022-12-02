@@ -19,6 +19,8 @@ export const MyMap = ({
   center,
   zoom,
   onSearch,
+  isStreetView,
+  activeCoords,
   ...options
 }: MapProps) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -51,8 +53,28 @@ export const MyMap = ({
     if (map && center && zoom) {
       map.setCenter(center);
       map.setZoom(zoom);
+
+      const panorama = map.getStreetView();
+      const toogle = panorama.getVisible();
+      if (toogle === true) {
+        panorama.setPosition(center);
+        panorama.setVisible(true);
+      }
     }
   }, [map, center, zoom]);
+
+  useEffect(() => {
+    const panorama = map?.getStreetView();
+    if (!panorama || !activeCoords) return;
+
+    panorama.setPosition({ lat: activeCoords.lat, lng: activeCoords.lng });
+    panorama.setPov({ heading: 265, pitch: 0, });
+    const toogle = panorama?.getVisible();
+
+    if (toogle === false) panorama.setVisible(true);
+    else panorama.setVisible(false);
+
+  }, [isStreetView]);
 
   return (
     <>

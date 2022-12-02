@@ -16,6 +16,7 @@ export const MapStores = () => {
 
   const [results, setResults] = useState<IStore[]>(allStores)
   const [searchValue, setSearchValue] = useState<string>("")
+  const [isStreetView, setIsStreetView] = useState<boolean>(false)
 
   useEffect(() => {
     if (!searchValue) return setResults(allStores)
@@ -31,7 +32,9 @@ export const MapStores = () => {
             center={center}
             zoom={zoom}
             className={styles.map}
+            isStreetView={isStreetView}
             onSearch={setSearchValue}
+            activeCoords={activeStore?.coords}
           >
             {results.map((store) => (
               <MyMarker
@@ -58,6 +61,7 @@ export const MapStores = () => {
         store={activeStore || null}
         handleFavorite={() => activeStore?.isFavorite ? removeFavorite(activeStore) : addFavorite(activeStore!)}
         onClose={() => setActiveStore(null)}
+        handleStreetView={() => setIsStreetView(!isStreetView)}
       />
     </div>
   );
