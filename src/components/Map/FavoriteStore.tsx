@@ -1,6 +1,8 @@
 import { FavoriteStoreProps } from "../../types";
 import { Button } from "../Button";
 
+import styles from './FavoriteStore.module.css'
+
 export const FavoriteStore = ({
   name,
   address,
@@ -8,19 +10,8 @@ export const FavoriteStore = ({
   onClickRemove,
 }: FavoriteStoreProps) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: "1rem",
-        justifyContent: "space-between",
-        alignItems: "center",
-        background: "#26547C",
-        padding: ".8rem",
-        color: "white",
-        borderRadius: "10px",
-      }}
-    >
-      <div style={{ textAlign: "left" }}>
+    <div className={styles.container}>
+      <div className={styles.container__info}>
         <div style={{ fontWeight: "bold" }}>{name}</div>
         <div>{address}</div>
       </div>

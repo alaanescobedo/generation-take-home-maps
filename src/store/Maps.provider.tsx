@@ -37,9 +37,9 @@ export const MapStoresProvider = ({ children,
 
   const handleAddFavorite = (storeSelected: IStore) => {
     if (favoriteStores.some(({ id }) => id === storeSelected.id)) return;
-    setFavoriteStores([...favoriteStores, storeSelected]);
     setAllStores((prev) => prev.map((store) => store.id === storeSelected.id ? { ...store, isFavorite: true } : store))
     setActiveStore((prev) => prev && prev.id === storeSelected.id ? { ...prev, isFavorite: true } : prev)
+    setFavoriteStores([...favoriteStores, { ...storeSelected, isFavorite: true }]);
   };
 
   return (
@@ -47,7 +47,7 @@ export const MapStoresProvider = ({ children,
       center,
       zoom,
       setCenter,
-      setZoom,
+      setZoom
     }}
     >
       <StoresContext.Provider value={{

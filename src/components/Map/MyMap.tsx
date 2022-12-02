@@ -8,7 +8,6 @@ import {
 } from "react";
 import { MapProps } from "../../types";
 import { InputSearch } from "../Form";
-import inputStyles from "../../containers/FavoriteStores.container.module.css";
 
 export const MyMap = ({
   onClick,
@@ -80,7 +79,7 @@ export const MyMap = ({
     <>
       <div ref={ref} className={className} style={{ ...style }} />
       {onSearch && (
-        <div className={`${inputStyles.container_search} ${inputStyles.me_auto}`}>
+        <div style={{ marginTop: '6rem', maxWidth: '160px', marginLeft: 'auto', alignSelf: 'baseline', marginRight: '1rem' }} >
           <InputSearch onChange={onSearch} />
         </div>
       )}

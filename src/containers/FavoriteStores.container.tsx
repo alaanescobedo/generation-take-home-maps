@@ -7,6 +7,7 @@ import { GO_TO_ZOOM } from "../constants";
 import { useMap, useStores } from "../store";
 import { useEffect, useState } from "react";
 import { searchStore } from "../utils/search-store";
+import { Button } from "../components/Button";
 
 export const FavoriteStoresContainer = () => {
   const { favoriteStores, setActiveStore, removeFavorite } = useStores()
@@ -29,10 +30,13 @@ export const FavoriteStoresContainer = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.container_title}>
-        <h2 style={{ marginBottom: 0 }} >Favorite Stores</h2>
-        <div className={`${styles.container_search} ${styles.ms_auto}`}>
-          <InputSearch onChange={setSearchValue} />
+      <div className={styles.container_header}>
+        <h2 className={styles.title} >Favorite Stores</h2>
+        <div className={`${styles.container_search}`}>
+          <Button variant="primary" size="md" label="Clear all" />
+          <div style={{ flex: 1 }}>
+            <InputSearch onChange={setSearchValue} />
+          </div>
         </div>
       </div>
 
