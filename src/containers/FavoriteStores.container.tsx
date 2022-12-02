@@ -10,7 +10,7 @@ import { searchStore } from "../utils/search-store";
 import { Button } from "../components/Button";
 
 export const FavoriteStoresContainer = () => {
-  const { favoriteStores, setActiveStore, removeFavorite } = useStores()
+  const { favoriteStores, setActiveStore, removeFavorite, clearFavorites } = useStores()
   const { setCenter, setZoom } = useMap()
 
   const [results, setResults] = useState<IStore[]>(favoriteStores)
@@ -33,7 +33,7 @@ export const FavoriteStoresContainer = () => {
       <div className={styles.container_header}>
         <h2 className={styles.title} >Favorite Stores</h2>
         <div className={`${styles.container_search}`}>
-          <Button variant="primary" size="md" label="Clear all" />
+          <Button variant="primary" size="md" label="Clear all" onClick={clearFavorites} />
           <div style={{ flex: 1 }}>
             <InputSearch onChange={setSearchValue} />
           </div>

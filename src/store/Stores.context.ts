@@ -10,6 +10,7 @@ interface IStoresContext {
   setFavoriteStores: (store: IStore[]) => void
   removeFavorite: (store: IStore) => void
   addFavorite: (store: IStore) => void
+  clearFavorites: () => void
 }
 
 export const StoresContext = createContext<IStoresContext | null>(null)

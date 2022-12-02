@@ -42,6 +42,12 @@ export const MapStoresProvider = ({ children,
     setFavoriteStores([...favoriteStores, { ...storeSelected, isFavorite: true }]);
   };
 
+  const handleClearFavorites = () => {
+    setFavoriteStores([])
+    setAllStores((prev) => prev.map((store) => ({ ...store, isFavorite: false })))
+    setActiveStore((prev) => prev ? { ...prev, isFavorite: false } : prev)
+  }
+
   return (
     <MapContext.Provider value={{
       center,
@@ -58,7 +64,8 @@ export const MapStoresProvider = ({ children,
         setAllStores,
         setFavoriteStores,
         addFavorite: handleAddFavorite,
-        removeFavorite: handleRemoveFavorite
+        removeFavorite: handleRemoveFavorite,
+        clearFavorites: handleClearFavorites
       }}>
         {children}
       </StoresContext.Provider>
