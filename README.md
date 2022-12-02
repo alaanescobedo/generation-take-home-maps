@@ -2,18 +2,18 @@
 
 Code-Challenge realizado por parte el programa de Generation.
 
-<div style="display:flex; gap: .2rem; margin:1rem 0">
+<div>
 Tecnologias utilizadas:
-<code style="display:flex; align-items:center;">React<img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"></code>
-<code style="display:flex; align-items:center;">Typescript<img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png">
-</code>
+<code><span>React</span><img height="14" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" align="center"/></code>
+<code><span>Typescript</span><img height="14"src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" align="center"/></code>
 </div>
 
-Proyecto realizado sin dependencias adicionales a react.
+
+#### Proyecto realizado sin dependencias adicionales a react.
 - Se implemento un wrapper propio basado en la liberia [@googlemaps/react-wrapper](https://www.npmjs.com/package/@googlemaps/react-wrapper)
 - Tests con Jest y React Testing Library
 
-API'S utilizadas:
+#### API'S utilizadas:
 - Maps Javascript API from Google
 
 ### Historias de usuario
