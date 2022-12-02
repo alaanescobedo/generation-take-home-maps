@@ -25,7 +25,7 @@ Tecnologias utilizadas:
 <img src="https://res.cloudinary.com/dr3egho5s/image/upload/v1670003472/generations-maps_umfjm3.jpg" />
 
 ### Uso
-Este proyecto es totalmente libre, para ejecutarlo realiza un clone de este repositorio y agrega tu API KEY en la siguiente variable de entorno.
+Este proyecto es totalmente libre, para ejecutarlo realiza un clone de este repositorio y agrega tu API KEY en la siguiente variable de entorno, despues simplemente remueve la extension ".template" del nombre del archivo.
 ```ts
 // .env.template
 GOOGLE_MAPS_API_KEY=yours_api_key
