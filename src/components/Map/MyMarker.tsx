@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MyMarkerProps } from "../../types";
 
+const DEFAULT_SIZE = 50;
 export const MyMarker = ({
   handleClick,
   icon,
@@ -23,7 +24,10 @@ export const MyMarker = ({
   useEffect(() => {
     if (marker) {
       marker.setOptions(options);
-      marker.setIcon(icon);
+      marker.setIcon({
+        url: icon as string,
+        scaledSize: new google.maps.Size(DEFAULT_SIZE, DEFAULT_SIZE),
+      });
 
       const infoWindow = new google.maps.InfoWindow({
         content: `<p style="color: #242424; font-weight: bold;">${options.title}</p>`,
@@ -43,7 +47,10 @@ export const MyMarker = ({
 
   useEffect(() => {
     if (marker) {
-      marker.setIcon(icon);
+      marker.setIcon({
+        url: icon as string,
+        scaledSize: new google.maps.Size(DEFAULT_SIZE, DEFAULT_SIZE),
+      });
     }
   }, [icon]);
 

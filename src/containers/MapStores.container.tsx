@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Status, Wrapper } from "../components/Map";
+import { Wrapper } from "../components/Map";
 import { AsideMap, MyMap, MyMarker } from "../components/Map";
 import { icons } from "../constants";
 
@@ -42,15 +42,13 @@ export const MapStores = () => {
                 position={store.coords}
                 title={store.name}
                 clickable={true}
-                icon={
-                  icons[
-                    store.id === activeStore?.id
-                      ? "selected"
-                      : store.isFavorite
-                        ? "favorite"
-                        : "default"
-                  ].icon
-                }
+                icon={icons[
+                  store.id === activeStore?.id
+                    ? "selected"
+                    : store.isFavorite
+                      ? "favorite"
+                      : "default"
+                ]}
                 handleClick={() => setActiveStore(store)}
               />
             ))}
