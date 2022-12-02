@@ -54,7 +54,8 @@ export const MyMap = ({
       map.setZoom(zoom);
 
       const panorama = map.getStreetView();
-      const toogle = panorama.getVisible();
+      if(!panorama) return;
+      const toogle = panorama?.getVisible();
       if (toogle === true) {
         panorama.setPosition(center);
         panorama.setVisible(true);
