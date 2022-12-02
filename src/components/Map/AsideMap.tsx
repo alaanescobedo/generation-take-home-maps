@@ -43,7 +43,7 @@ export const AsideMap = ({
               <span>Lat:{store.coords?.lat}</span> - <span>Lng:{store.coords?.lng}</span>
             </p>
             <div>
-              <Button variant="primary" label="POV" onClick={handleStreetView} style={{ padding: '.6rem 2.4rem' }} />
+              <Button variant="primary" label="Street View" onClick={handleStreetView} style={{ padding: '.6rem 2.4rem' }} />
             </div>
             <a className={styles.content_link} href={toGoogleMaps} target="_blank">
               View in Google Maps
